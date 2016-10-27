@@ -16,9 +16,12 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import org.springframework.scheduling.annotation.EnableScheduling;
+
 @SpringBootApplication
 @EnableSwagger2
 @EnableDiscoveryClient
+@EnableScheduling
 public class AppetizerApplication {
 
 	public static void main(String[] args) {
@@ -26,13 +29,13 @@ public class AppetizerApplication {
 		System.out.println("Running "+AppetizerApplication.class+" via Spring Boot!");
 	}
 	@Bean
-  public Docket api() {
+	public Docket api() {
       return new Docket(DocumentationType.SWAGGER_2)
               .apiInfo(apiInfo())
               .select()
               .paths(regex("/appetizers"))
               .build();
-  }
+	}
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
 					 .title("Appetizers API")
@@ -42,4 +45,5 @@ public class AppetizerApplication {
 					 .version("0.2")
 					 .build();
 	}
+	
 }

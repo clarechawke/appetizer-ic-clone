@@ -21,6 +21,8 @@ eureka:
     preferIpAddress: true
 
 wfd:
+  monitor:
+    graphiteServer: "169.46.155.227"
   appetizer:
     order: 1
     type: appetizer
